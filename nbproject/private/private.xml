@@ -3,9 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Administrador/Documents/UniversidadGrupo20/src/universidadgrupo20/accesoADatos/InscripcionData.java</file>
-            <file>file:/C:/Users/Administrador/Documents/UniversidadGrupo20/src/universidadgrupo20/accesoADatos/AlumnoData.java</file>
-            <file>file:/C:/Users/Administrador/Documents/UniversidadGrupo20/src/universidadgrupo20/accesoADatos/MateriaData.java</file>
+            <file>file:/C:/Users/jfa_j/OneDrive/Documents/GitHub/UniversidadulpGrupo20/src/universidadgrupo20/Vistas/Menuguia.java</file>
+            <file>file:/C:/Users/jfa_j/OneDrive/Documents/GitHub/UniversidadulpGrupo20/src/universidadgrupo20/Entidades/Inscripcion.java</file>
+            <file>file:/C:/Users/jfa_j/OneDrive/Documents/GitHub/UniversidadulpGrupo20/src/universidadgrupo20/accesoADatos/MateriaData.java</file>
+            <file>file:/C:/Users/jfa_j/OneDrive/Documents/GitHub/UniversidadulpGrupo20/src/universidadgrupo20/accesoADatos/AlumnoData.java</file>
+            <file>file:/C:/Users/jfa_j/OneDrive/Documents/GitHub/UniversidadulpGrupo20/src/universidadgrupo20/Entidades/Alumno.java</file>
+            <file>file:/C:/Users/jfa_j/OneDrive/Documents/GitHub/UniversidadulpGrupo20/src/universidadgrupo20/accesoADatos/Conexion.java</file>
+            <file>file:/C:/Users/jfa_j/OneDrive/Documents/GitHub/UniversidadulpGrupo20/src/universidadgrupo20/MenuAdmin.java</file>
+            <file>file:/C:/Users/jfa_j/OneDrive/Documents/GitHub/UniversidadulpGrupo20/src/universidadgrupo20/Entidades/Materia.java</file>
         </group>
     </open-files>
 </project-private>
