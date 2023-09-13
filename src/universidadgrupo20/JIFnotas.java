@@ -1,20 +1,39 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
- */
+
 package universidadgrupo20;
 
-/**
- *
- * @author jfa_j
- */
-public class JIFnotas extends javax.swing.JInternalFrame {
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import javax.swing.table.DefaultTableModel;
+import universidadgrupo20.Entidades.Alumno;
+import universidadgrupo20.Entidades.Materia;
+import java.util.Vector;
+import javax.swing.JOptionPane;
+import javax.swing.JScrollPane;
 
-    /**
-     * Creates new form JIFnotas
-     */
+public class JIFnotas extends javax.swing.JInternalFrame {
+private DefaultTableModel modelo= new DefaultTableModel();
+  
+
+ public boolean isCellEditable(int fila, int columna){
+             return false;
+        }
+
+ 
+  private static final String URL="jdbc:mariadb://localhost/";
+    private static final String DB="universidadulp";
+    private static String USUARIO="root";
+    private  static String PASSWORD="";
+    private static Connection connection;
+ 
+ 
+ 
+
     public JIFnotas() {
         initComponents();
+        armarCabezera();
+        cargarNotasTable( );
     }
 
     /**
@@ -81,4 +100,92 @@ public class JIFnotas extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTnotas;
     // End of variables declaration//GEN-END:variables
+
+
+
+
+
+
+ private void armarCabezera(){
+        modelo.addColumn("Materia");
+        modelo.addColumn("Año");
+        modelo.addColumn("Nota");
+        
+        jTnotas.setModel(modelo);
+        
+    }
+
+   private void borrarfila(){
+        
+        
+        int filass=jTnotas.getRowCount()-1;
+        for(int f=filass;f>=0;f--){
+            modelo.removeRow(f);
+        }
+    }
+    
+ private void cargarNotasTable( ){
+     
+      try {
+           Class.forName("org.mariadb.jdbc.Driver");
+            Connection conx = DriverManager.getConnection(URL+DB,USUARIO,PASSWORD);
+            Statement sta = conx.createStatement();
+            ResultSet resultado = sta.executeQuery("SELECT materia.nombre, materia.año, inscripcion.nota FROM inscripcion INNER JOIN materia ON inscripcion.idmateria = materia.idmateria WHERE inscripcion.idAlumno = 3");
+
+            
+            while (resultado.next()) {
+                
+                Vector<String> fila = new Vector<>();
+                
+                fila.add(resultado.getString("Materia"));
+                fila.add(resultado.getString("Año"));
+                fila.add(resultado.getString("Nota"));
+                modelo.addRow(fila);
+            }
+
+            resultado.close();
+            sta.close();
+            conx.close();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, e.getMessage());
+        }
+        JScrollPane scroll = new JScrollPane(jTnotas);
+        add(scroll);
+
+        // Mostrar la ventana
+        setVisible(true);
+       
+    }
+
+    
+
+
+
+
+
+
+
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+    String sql=" SELECT     materia.nombre AS nombre_materia,     materia.año AS año_materia,     inscripcion.nota FROM inscripcion INNER JOIN materia ON inscripcion.idmateria = materia.idmateria WHERE inscripcion.idAlumno = 3;";
+
+     
+ }
+ 
+ 
+ 
+ 
 }
